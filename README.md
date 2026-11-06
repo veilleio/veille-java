@@ -12,7 +12,15 @@ The SDK exposes **11 typed methods**, one per documented endpoint, each with a p
 
 ## Installation
 
-Maven:
+The SDK is not on Maven Central. Build it from source, which installs it in your local Maven repository:
+
+```sh
+git clone https://github.com/veilleio/veille-java.git
+cd veille-java
+mvn -q install -DskipTests
+```
+
+Then add it to your project. Maven:
 
 ```xml
 <dependency>
@@ -22,7 +30,7 @@ Maven:
 </dependency>
 ```
 
-Gradle:
+Gradle, with `mavenLocal()` in your repositories:
 
 ```kotlin
 implementation("io.veille:veille:0.1.0")
@@ -151,6 +159,20 @@ VeilleClient client = VeilleClient.builder()
 | `vat()` | GET `/v1/vat` | Validate a European VAT number against the VIES database. Returns company name, registered address, and validity status for any EU member s… |
 | `vatIban()` | GET `/v1/vat/iban` | Validate any IBAN and retrieve associated bank details. Returns the BIC/SWIFT code, bank name, country, BBAN structural breakdown, and SEPA… |
 | `vatRates()` | GET `/v1/vat/rates` | Get current ECB exchange rates for any supported base currency. Optionally filter to specific target currencies. Updated daily from the Eur… |
+
+## All Veille SDKs
+
+| SDK | Package | Install |
+| --- | --- | --- |
+| Node.js | [`@veilleio/sdk`](https://www.npmjs.com/package/@veilleio/sdk) | `npm install @veilleio/sdk` |
+| Python | [`veille`](https://pypi.org/project/veille/) | `pip install veille` |
+| Go | [`veille-go`](https://pkg.go.dev/github.com/veilleio/veille-go) | `go get github.com/veilleio/veille-go` |
+| .NET | [`Veille`](https://www.nuget.org/packages/Veille) | `dotnet add package Veille` |
+| Ruby | [`veille`](https://rubygems.org/gems/veille) | `gem install veille` |
+| PHP | [`veille/sdk`](https://packagist.org/packages/veille/sdk) | `composer require veille/sdk` |
+| Java | [`veille-java`](https://github.com/veilleio/veille-java) | build from source, see its README |
+| CLI | [`@veilleio/cli`](https://www.npmjs.com/package/@veilleio/cli) | `npm install -g @veilleio/cli` |
+| MCP server | [`@veilleio/mcp`](https://www.npmjs.com/package/@veilleio/mcp) | `npx -y @veilleio/mcp` |
 
 ## License
 
